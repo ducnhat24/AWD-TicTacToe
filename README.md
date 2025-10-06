@@ -1,1 +1,2 @@
-# AWD-TicTacToe
+# React + Vite
+# TikTacToe AWD

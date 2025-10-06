@@ -1,0 +1,131 @@
+:root {
+    --header-color: #6D94C5;
+    --history-table-color: #CBDCEB;
+    --board-color: #F5EFE6;
+    --game-color: #F5EFE6;
+
+}
+
+.square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 34px;
+    font-weight: bold;
+    line-height: 100px;
+    height: 100px;
+    width: 100px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.square.winning {
+    background: #90ee90;
+    color: black;
+}
+
+.board {
+    padding: 20px 20px 20px 20px;
+    /* margin: 20px; */
+    background-color: var(--board-color);
+    width: 300px;
+    height: 600px;
+}
+
+.board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.status {
+    margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.history-item {
+    margin-bottom: 5px;
+    background-color: #f0f2f5;
+
+}
+
+
+/* This is the main Flexbox container */
+.game {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--game-color);
+
+    padding: 20px;
+}
+
+.game-board {
+    margin-right: 20px;
+    /* Adds some space between the board and the history */
+}
+
+
+/* 📱 This is the media query for responsiveness */
+@media (max-width: 600px) {
+    .game {
+        /* On screens 600px or less, stack them vertically */
+        flex-direction: column;
+    }
+
+    .game-board {
+        margin-top: 138px;
+        margin-right: 0;
+        /* Remove the right margin */
+        margin-bottom: 20px;
+        /* Add space below the board */
+    }
+
+    .board {
+        height: 350px;
+    }
+}
+
+.game-info {
+    padding: 20px 20px 20px 20px;
+    margin: 0px;
+    width: 300px;
+    height: 600px;
+    /* Adds some space between the board and the history */
+    background-color: var(--history-table-color);
+}
+
+.history-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--header-color);
+    color: white;
+}
+
+.sort-button {
+    float: right;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Khoảng cách giữa chữ và icon */
+    padding: 10px 16px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f0f0f0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.sort-button:hover {
+    background-color: #e0e0e0;
+    border-color: #999;
+}
