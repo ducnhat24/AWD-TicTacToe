@@ -1,8 +1,11 @@
 :root {
+    --width: 300px;
+    --height: 650px;
     --header-color: #6D94C5;
     --history-table-color: #CBDCEB;
     --board-color: #F5EFE6;
     --game-color: #F5EFE6;
+    --hover-background-button: #AED6CF;
 
 }
 
@@ -29,11 +32,14 @@
 }
 
 .board {
-    padding: 20px 20px 20px 20px;
-    /* margin: 20px; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    align-items: center;
     background-color: var(--board-color);
-    width: 300px;
-    height: 600px;
+    width: var(--width);
+    height: var(--height);
+
 }
 
 .board-row:after {
@@ -49,54 +55,64 @@
 }
 
 .history-item {
-    margin-bottom: 5px;
-    background-color: #f0f2f5;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 6px;
+    background-color: white;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 18px;
+}
 
+.history-item:hover {
+    background-color: var(--hover-background-button);
+    border-color: black;
 }
 
 
-/* This is the main Flexbox container */
 .game {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     background-color: var(--game-color);
-
-    padding: 20px;
+    border: 1px solid black;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: black 0px 4px 8px;
 }
 
 .game-board {
-    margin-right: 20px;
-    /* Adds some space between the board and the history */
+    margin-right: 58px;
 }
 
-
-/* 📱 This is the media query for responsiveness */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .game {
-        /* On screens 600px or less, stack them vertically */
         flex-direction: column;
+        margin-top: 20px;
+        align-items: center;
+
     }
 
     .game-board {
-        margin-top: 138px;
-        margin-right: 0;
-        /* Remove the right margin */
-        margin-bottom: 20px;
-        /* Add space below the board */
+        margin-right: 0px;
+        margin-bottom: 60px;
     }
 
     .board {
-        height: 350px;
+        height: 400px;
     }
 }
 
 .game-info {
     padding: 20px 20px 20px 20px;
     margin: 0px;
-    width: 300px;
-    height: 600px;
-    /* Adds some space between the board and the history */
+    width: var(--width);
+    height: var(--height);
     background-color: var(--history-table-color);
+    border: black 1px solid;
+    border-radius: 16px;
+    box-shadow: gray 0px 4px 8px;
 }
 
 .history-header {
@@ -105,27 +121,65 @@
     align-items: center;
     background-color: var(--header-color);
     color: white;
+    border: black 1px solid;
+    border-radius: 12px;
+
 }
 
 .sort-button {
     float: right;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 8px;
-    /* Khoảng cách giữa chữ và icon */
     padding: 10px 16px;
-    margin: 5px;
-    border: 1px solid #ccc;
+    margin: 10px 0px;
+    border: 1px solid black;
     border-radius: 6px;
-    background-color: #f0f0f0;
-    font-size: 16px;
+    background-color: white;
+    font-size: 18px;
     font-weight: 500;
     color: #333;
     cursor: pointer;
+    min-width: 150px;
     transition: background-color 0.3s, border-color 0.3s;
 }
 
 .sort-button:hover {
-    background-color: #e0e0e0;
-    border-color: #999;
+    background-color: var(--hover-background-button);
+    border-color: black;
+}
+
+.restart-button {
+    margin-top: 20px;
+    padding: 10px 16px;
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.restart-button:hover {
+    background-color: var(--hover-background-button);
+    border-color: black;
+}
+
+.game-title {
+    display: flex;
+    justify-content: center;
+    font-family: "Jersey 20", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+    font-size: 80px;
+    margin: 0;
 }

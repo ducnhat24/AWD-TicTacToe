@@ -1,6 +1,6 @@
 import Square from './Square.jsx';
 
-function Board({ xIsNext, squares, onPlay, winningLine, status }) {
+function Board({ xIsNext, squares, onPlay, winningLine, status, onRestart }) {
     function handleClick(i) {
         if (squares[i] || winningLine.length > 0) {
             return;
@@ -36,6 +36,10 @@ function Board({ xIsNext, squares, onPlay, winningLine, status }) {
                     })}
                 </div>
             ))}
+
+            <button className="restart-button" onClick={onRestart}>
+                <i className="fas fa-redo"></i> Restart
+            </button>
         </div>
     );
 }

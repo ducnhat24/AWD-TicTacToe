@@ -9,9 +9,9 @@ function History({ history, jumpTo, sortAscending, toggleSortOrder }) {
 
         if (moveIndex > 0) {
             const player = (moveIndex % 2 !== 0) ? 'X' : 'O';
-            description = `Player ${player} marks at ${location} (move #${moveIndex})`;
+            description = `${moveIndex}. Player ${player} marks at ${location}`;
         } else {
-            description = 'Go to game start';
+            description = '0. Go to game start';
         }
 
         return (
@@ -27,7 +27,8 @@ function History({ history, jumpTo, sortAscending, toggleSortOrder }) {
                 <h2>Game History</h2>
             </div>
             <button className="sort-button" onClick={toggleSortOrder}>
-                Sort by: {sortAscending ? 'Ascending' : 'Descending'}
+                <i className="fas fa-sort"></i>
+                <span className="sort-text">{sortAscending ? 'Ascending' : 'Descending'}</span>
             </button>
             <ul style={{ listStyleType: 'none', padding: 0 }}>{moves}</ul>
         </div>

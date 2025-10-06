@@ -33,10 +33,20 @@ function App() {
     setCurrentMove(nextMove);
   }
 
-  // 3. Add function to toggle the sort order
   function handleSortToggle() {
     setSortAscending(!sortAscending);
   }
+
+  function handleRestart() {
+    setHistory([
+      {
+        squares: Array(9).fill(null),
+        location: null,
+      },
+    ]);
+    setCurrentMove(0);
+  }
+
 
 
   const result = calculateWinner(currentSquares);
@@ -54,30 +64,37 @@ function App() {
 
 
   return (
-    <div className="game">
-      <div className="game-board">
-        <Board
-          xIsNext={xIsNext}
-          squares={currentSquares}
-          onPlay={handlePlay}
-          winningLine={winningLine}
-          status={status}
-        />
+    <div>
+      <div className="game-title">
+        TicTacToe
       </div>
-      <div className="game-info">
-        <History
-          history={history}
-          jumpTo={jumpTo}
-          sortAscending={sortAscending}
-          toggleSortOrder={handleSortToggle}
-        />
+
+      <div className="game">
+        <div className="game-board">
+          <Board
+            xIsNext={xIsNext}
+            squares={currentSquares}
+            onPlay={handlePlay}
+            winningLine={winningLine}
+            status={status}
+            onRestart={handleRestart}
+          />
+        </div>
+        <div className="game-info">
+          <History
+            history={history}
+            jumpTo={jumpTo}
+            sortAscending={sortAscending}
+            toggleSortOrder={handleSortToggle}
+          />
+        </div>
       </div>
+
     </div>
   );
 }
 
 
-// Moved from Board.jsx
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8],
@@ -92,5 +109,6 @@ function calculateWinner(squares) {
   }
   return null;
 }
+
 
 export default App;
