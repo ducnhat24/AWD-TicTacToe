@@ -8,7 +8,7 @@ function Modal({ message, onRestart }) {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2>Game Over</h2>
+        <div className="modal-header">Game Over</div>
         <p>{message}</p>
         <button onClick={onRestart}>Play again</button>
       </div>

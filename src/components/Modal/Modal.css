@@ -16,11 +16,12 @@
     background: white;
     padding: 20px 40px;
     border-radius: 8px;
+    border: 1px solid black;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.modal-content h2 {
+.modal-header {
     margin-top: 0;
     font-family: "Jersey 20", sans-serif;
     font-size: 64px;
@@ -33,10 +34,16 @@
 .modal-content button {
     margin-top: 15px;
     padding: 10px 20px;
-    border: none;
-    background-color: #007bff;
-    color: white;
+    border: 1px solid black;
+    box-shadow: 0px 4px 8px gray;
+    background-color: white;
+    color: black;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+}
+
+.modal-content button:hover {
+    background-color: var(--hover-background-button);
+    border-color: black;
 }
