@@ -11,6 +11,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --width: 300px;
+  --height: 650px;
+  --header-color: #6D94C5;
+  --history-table-color: #CBDCEB;
+  --board-color: #F5EFE6;
+  --game-color: #F5EFE6;
+  --hover-background-button: #AED6CF;
 }
 
 

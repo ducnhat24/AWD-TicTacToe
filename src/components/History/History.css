@@ -1,0 +1,49 @@
+.history-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 6px;
+    background-color: white;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.history-item:hover {
+    background-color: var(--hover-background-button);
+    border-color: black;
+}
+
+.history-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--header-color);
+    color: white;
+    border: black 1px solid;
+    border-radius: 12px;
+}
+
+.sort-button {
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 16px;
+    margin: 10px 0px;
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    min-width: 150px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.sort-button:hover {
+    background-color: var(--hover-background-button);
+    border-color: black;
+}

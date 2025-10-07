@@ -1,0 +1,42 @@
+.board {
+    align-items: center;
+    background-color: var(--board-color);
+    width: var(--width);
+    height: var(--height);
+
+}
+
+.board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.status {
+    margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.restart-button {
+    margin-top: 20px;
+    padding: 10px 16px;
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.restart-button:hover {
+    background-color: var(--hover-background-button);
+    border-color: black;
+}

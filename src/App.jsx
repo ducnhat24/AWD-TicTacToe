@@ -1,7 +1,8 @@
 
 import { useState } from 'react';
-import Board from './components/Board.jsx';
-import History from './components/History.jsx';
+import Board from './components/Board/Board.jsx';
+import History from './components/History/History.jsx';
+import Modal from './components/Modal/Modal.jsx';
 import './App.css';
 
 function App() {
@@ -63,11 +64,21 @@ function App() {
   }
 
 
+  let modalMessage = '';
+  if (winner) {
+    modalMessage = `The winner is: ${winner}`;
+  } else if (currentMove === 9) {
+    modalMessage = "The game is a draw!";
+  }
+
+
   return (
     <div>
       <div className="game-title">
         TicTacToe
       </div>
+
+      <Modal message={modalMessage} onRestart={handleRestart} />
 
       <div className="game">
         <div className="game-board">
