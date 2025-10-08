@@ -37,7 +37,6 @@ function Board({ xIsNext, squares, onPlay, winningLine, status, onRestart }) {
                     })}
                 </div>
             ))}
-
             <button className="restart-button" onClick={onRestart}>
                 <i className="fas fa-redo"></i> Restart
             </button>

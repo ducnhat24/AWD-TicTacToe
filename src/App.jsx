@@ -47,6 +47,7 @@ function App() {
       },
     ]);
     setCurrentMove(0);
+    setIsModalOpen(false);
   }
 
 
