@@ -1,8 +1,8 @@
 
-import { useState } from 'react';
 import Board from './components/Board/Board.jsx';
 import History from './components/History/History.jsx';
 import Modal from './components/Modal/Modal.jsx';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
   const [sortAscending, setSortAscending] = useState(true);
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove].squares;
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   function handlePlay(nextSquares, i) {
     const nextHistory = history.slice(0, currentMove + 1);
@@ -53,6 +54,14 @@ function App() {
   const result = calculateWinner(currentSquares);
   const winningLine = result ? result.line : [];
   const winner = result ? result.winner : null;
+  const isDraw = currentMove === 9 && !winner;
+
+  useEffect(() => {
+    if (winner || isDraw) {
+      setIsModalOpen(true);
+    }
+  }, [winner, isDraw]);
+
 
   let status;
   if (winner) {
@@ -71,6 +80,10 @@ function App() {
     modalMessage = "The game is a draw!";
   }
 
+  function handleCloseModal() {
+    setIsModalOpen(false);
+  }
+
 
   return (
     <div>
@@ -78,7 +91,7 @@ function App() {
         TicTacToe
       </div>
 
-      <Modal message={modalMessage} onRestart={handleRestart} />
+      <Modal message={modalMessage} onRestart={handleRestart} onClose={handleCloseModal} isOpen={isModalOpen} />
 
       <div className="game">
         <div className="game-board">
